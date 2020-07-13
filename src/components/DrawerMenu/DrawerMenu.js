@@ -11,6 +11,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
 
 
 const useStyles = makeStyles({
@@ -40,9 +43,10 @@ export default function SwipeableTemporaryDrawer() {
       onKeyDown={toggleDrawer()}
     >
       <List>
-        {['About Us', 'Login', 'Laws/Ethics'].map((text, index) => (
+        {['About Us', 'Login', 'Laws/Ethics'].map((text, index, {arr= [<PeopleOutlineIcon/>,<VpnKeyIcon/>,<MenuBookIcon/>]}) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon>{arr[index]}</ListItemIcon>
+            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
             <ListItemText primary={text} />
           </ListItem>
         ))}
